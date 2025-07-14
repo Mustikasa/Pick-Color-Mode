@@ -1,0 +1,98 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+.angry {
+  background-color: red;
+  color: black;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+nav {
+  background-color: rgb(42, 39, 39);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  padding: 9px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+  background-color: rgb(42, 39, 39);
+}
+
+/* nav a:hover {
+  background-color: rgb(167, 18, 167);
+  transition-duration: 0.5s;
+  border-radius: 5px;
+} */
+nav a.home:hover {
+  background-color: rgb(60, 167, 18);
+  transition-duration: 0.5s;
+  border-radius: 5px;
+}
+nav a.mode:hover {
+  background-color: rgb(167, 18, 167);
+  transition-duration: 0.5s;
+  border-radius: 5px;
+}
+nav a.marah:hover {
+  background-color: red;
+  transition-duration: 0.5s;
+  border-radius: 5px;
+}
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+  font-size: 15px;
+  font-weight: 700;
+  animation: dagdigdug 0.5s infinite;
+}
+@keyframes dagdigdug {
+  0% {
+    /* font-size: 15px; */
+    color: chartreuse;
+  }
+  40% {
+    color: rgb(212, 255, 0);
+  }
+  70% {
+    /* font-size: 17px; */
+    color: blueviolet;
+  }
+  100% {
+    /* font-size: 15px; */
+    color: rgb(0, 8, 255);
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dark Mode</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <a onclick="reload()" id="home" class="home">Home</a>
+        <a onclick="darkMode()" id="mode" class="mode">Dark Mode</a>
+        <a onclick="angryMode()" id="angry" class="marah">Angry Mode</a>
+      </nav>
+      <h1 class="h1">Membuat Dark Mode</h1>
+      <p class="info" id="info"></p>
+    </div>
+
+    <!-- initialitazion  function script -->
+    <script>
+      let body = document.body;
+      let info = document.getElementById("info");
+      let mode = document.getElementById("mode");
+      let home = document.getElementById("home");
+      let angry = document.getElementById("angry");
+
+      const darkLimit = 5;
+      let darkCounter = 0;
+      let darkRemainingLeft;
+
+      const angryLimit = 5;
+      let angryCounter = 0;
+      let angryRemainingLeft;
+
+      function darkMode() {
+        if (darkRemainingLeft == 1) {
+          info.textContent = `✨ Jatah Dark Mode Anda Sudah Habis ✨`;
+          mode.style.display = "none";
+          home.textContent = "Restart";
+          console.log("Jatah Dark Mode Anda Sudah Habis");
+          return;
+        }
+        darkCounter += 1;
+        darkRemainingLeft = darkLimit - darkCounter;
+
+        info.textContent = `Dark Mode dipakai sebanyak ${darkCounter}x, \nKesempatan Anda Sisa ${darkRemainingLeft}x`;
+
+        console.log("Dark Mode diklik sebanyak: ", darkCounter);
+        console.log("Kesempatan Anda Sisa: ", darkRemainingLeft);
+        body.classList.toggle("dark");
+
+        if (document.body.classList.contains("dark")) {
+          mode.textContent = "Light Mode";
+        } else {
+          mode.textContent = "Dark Mode";
+        }
+        document.body.classList.remove("angry");
+      }
+
+      function angryMode() {
+        if (angryRemainingLeft == 1) {
+          info.textContent = `✨ Jatah Angry Mode Anda Sudah Habis ✨`;
+          angry.style.display = "none";
+          home.textContent = "Restart";
+          return;
+        }
+        angryCounter += 1;
+        angryRemainingLeft = angryLimit - angryCounter;
+        body.classList.toggle("angry");
+        info.textContent = `Angry Mode dipakai sebanyak ${angryCounter}x, \nKesempatan Anda Sisa ${angryRemainingLeft}x`;
+        if (document.body.classList.contains("angry")) {
+          angry.textContent = "Light Mode";
+        } else {
+          angry.textContent = "Angry Mode";
+        }
+        document.body.classList.remove("dark");
+      }
+      function reload() {
+        location.reload();
+      }
+    </script>
+  </body>
+</html>
